@@ -1,11 +1,14 @@
 package com.example.jk
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+fun main(){
+    val x1 = readLine()!!.toInt()
+    val x2 = readLine()!!.toInt()
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    try {
+        val res = x1 / x2
+    } catch (e: ArithmeticException){
+
     }
+
+    println("result = $res")
 }
