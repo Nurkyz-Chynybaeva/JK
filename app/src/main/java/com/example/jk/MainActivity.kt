@@ -18,12 +18,8 @@ AUTO_INCREMENT автоматически увеличивает на едини
 PRIMARY KEY(id) это значит что поле id не будет повторятся
 DATATIME дата и время
 DROP TABLE users;
+--------------------------------------------------------------------------------------------------------------------------------------------------
  */
-
-
-
-
-
 
 
 //third lesson    Добавление и обновление записей в БД
@@ -40,12 +36,8 @@ ALTER TABLE users CHANGE birth birth2 DATE NOT NULL  меняет поле birth
 
 UPDATE 'people' SET 'name' = 'Max' WHERE id = 5;
 UPDATE 'people' SET 'name' = 'Max' 'email' = 'test5@gmail.com' WHERE id > 5; д всех записей у которых id будет больше чем 5 будет работать этот код
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  */
-
-
-
-
-
 
 
 
@@ -55,12 +47,8 @@ DELETE FROM users;
 DELETE FROM users WHERE id = 2;
 TRUNCATE 'users';  очищает таблицу
 DROP TABLE users;
+---------------------------------------------------------------------------------------------------------------------------------------------------
  */
-
-
-
-
-
 
 
 
@@ -79,8 +67,69 @@ SELECT * FROM people WHERE 2 AND 6 AND id <> 4 ORDER BY id DESC LIMIT 10
 SELECT * FROM people WHERE id IN(1,2,3)
 SELECT * FROM people WHERE name LIKE 'M%'    выбираем все записи у которых поля name начинается с М
 SELECT * FROM people WHERE name LIKE '%Min%'
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  */
+
+
+
+//sixth lesson        Создание индексов и работы с ними
+/*
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+
+
+//seventh lesson         Объединение данных
+/*
+INSERT INTO 'shop' ('title', 'price') VALUES('iPhone', 300), ('samsung', 250),('mac', 300),
+
+SELECT orders.orderNumber, users.name, users.email FROM users
+INNER JOIN orders ON users.id = orders.personId
+ORDER BY orders.orderNumber DESC;
+
+SELECT users.name, orders.orderNumber FROM users
+LEFT JOIN orders ON users.id = orders.personId
+ORDER BY users.name DESC;
+
+SELECT orders.date_time, users.name FROM orders
+RIGHT JOIN users ON orders.personId = users.id;
+
+OUTER JOIN
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+
+
+
+//eighth lesson       Псевдонимы, функции и Group By
+/*
+SELECT name AS 'Имя', birth AS 'День рождения' FROM users;
+
+SELECT CONCAT(name, birth) AS "information:" FROM users;
+
+SELECT u.id, u.name, s.title, s.price FROM users AS u, shop AS s;
+
+SELECT COUNT(id) FROM shop;
+
+SELECT MIN(price) FROM shop;
+SELECT AVG(price) FROM shop;     Среднее значение
+SELECT SUM(price) FROM shop;
+SELECT UCASE/LCASE(title) FROM shop;  вверхний/нижный регистр
+
+SELECT price, COUNT(price) FROM shop GROUP BY price
+HAVING COUNT(price) > 1;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+
+
+
+
+
+
+
+
+
 
 
 
